@@ -38,18 +38,27 @@ public class User {
     }
 
     public void setName(String name) {
+        if(name.isEmpty()){
+            throw new NullPointerException("Name canot be empty");
+        }
         this.name = name;
     }
 
     public String getEmail() {
+        if(email.isEmpty()){
+            throw new NullPointerException("email canot be empty");
+        }
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email){
         this.email = email;
     }
 
-    public String getPassword() {
+    public String getPassword() throws Exception {
+        if(email.length() <= 8){
+            throw new Exception("Password is weak");
+        }
         return password;
     }
 
