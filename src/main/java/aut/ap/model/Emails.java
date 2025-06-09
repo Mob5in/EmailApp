@@ -1,15 +1,12 @@
 package aut.ap.model;
-import aut.ap.model.EmailRecipient;
-
-
 import jakarta.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Emails")
-public class Emails {
+public class Emails{
+
     @Id
     @Column(name = "code", length = 6)
     private String code;
@@ -18,27 +15,30 @@ public class Emails {
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
 
+    @Column(name = "subject", nullable = false, length = 255)
     private String subject;
+
+    @Column(name = "body", nullable = false, columnDefinition = "TEXT")
     private String body;
 
-    @Column(name = "sent_date", updatable = false, insertable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date sentDate;
+    @Column(name = "sent_date", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime sentDate;
 
-    @OneToMany(mappedBy = "email", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<EmailRecipient> recipients = new HashSet<>();
+    // Constructor
+    public Emails(){
+        this.code = generateUniqueKey();
+        this.sentDate = LocalDateTime.now();
+    }
 
-    public Emails() {}
 
-    public Emails(String code, User sender, String subject, String body) {
-        this.code = code;
-        this.sender = sender;
-        this.subject = subject;
-        this.body = body;
+
+    // Generate 6-character unique code
+    public static String generateUniqueKey() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString().substring(0, 6);
     }
 
     // Getters and Setters
-
     public String getCode() {
         return code;
     }
@@ -71,34 +71,11 @@ public class Emails {
         this.body = body;
     }
 
-    public Date getSentDate() {
+    public LocalDateTime getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
+    public void setSentDate(LocalDateTime sentDate) {
         this.sentDate = sentDate;
-    }
-
-    public Set<EmailRecipient> getRecipients() {
-        return recipients;
-    }
-
-    public void addRecipient(EmailRecipient recipient) {
-        recipients.add(recipient);
-        recipient.setEmail(this);
-    }
-
-    public void removeRecipient(EmailRecipient recipient) {
-        recipients.remove(recipient);
-        recipient.setEmail(null);
-    }
-
-    @Override
-    public String toString() {
-        return "Email{" +
-                "code='" + code + '\'' +
-                ", subject='" + subject + '\'' +
-                ", sentDate=" + sentDate +
-                '}';
     }
 }
