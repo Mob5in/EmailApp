@@ -22,7 +22,7 @@ public class User {
     // Constructors
     public User() {}
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password) throws Exception {
         setName(name);
         setEmail(email);
         setPassword(password);
@@ -37,32 +37,33 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws Exception {
         if(name.isEmpty()){
-            throw new NullPointerException("Name canot be empty");
+            throw new Exception("Name canot be empty");
         }
         this.name = name;
     }
 
-    public String getEmail() {
-        if(email.isEmpty()){
-            throw new NullPointerException("email canot be empty");
-        }
+    public String getEmail(){
         return email;
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) throws Exception {
+        if(email.isEmpty()){
+            throw new Exception("email canot be empty");
+        }
         this.email = email;
     }
 
-    public String getPassword() throws Exception {
-        if(email.length() <= 8){
-            throw new Exception("Password is weak");
-        }
+    public String getPassword(){
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws Exception {
+        if(email.length() <= 8){
+            System.out.println("it is weak");
+            throw new Exception("Password is weak");
+        }
         this.password = password;
     }
 
