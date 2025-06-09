@@ -60,7 +60,7 @@ public class User {
     }
 
     public void setPassword(String password) throws Exception {
-        if(email.length() <= 8){
+        if(password.length() <= 8){
             System.out.println("it is weak");
             throw new Exception("Password is weak");
         }
