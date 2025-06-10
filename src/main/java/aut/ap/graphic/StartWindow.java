@@ -43,7 +43,7 @@ public class StartWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Sign Up button clicked");
-
+                signUpButton.addActionListener(SignUp.signUp());
             }
         });
 

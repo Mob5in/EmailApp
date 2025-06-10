@@ -30,6 +30,7 @@ public class SignUpService {
             Transaction tx = session.beginTransaction();
             session.persist(user);
             tx.commit();
+            pupUp("User created successfully");
         }catch (Exception e){
                 String errorMassage = e.getMessage();
                 pupUp(errorMassage);
