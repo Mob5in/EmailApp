@@ -1,11 +1,23 @@
 package aut.ap.graphic.userEnvironment;
 
+import aut.ap.model.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuWindow {
+
+    public User correntUser;
+
+    public void setUser(User correntUser){
+        this.correntUser = correntUser;
+    }
+
+    public User getCorrentUser(){
+        return this.correntUser;
+    }
 
     public static void showMenu() {
         JFrame frame = new JFrame("User Menu");
@@ -76,6 +88,7 @@ public class MenuWindow {
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
 
@@ -88,4 +101,6 @@ public class MenuWindow {
         button.setBackground(Color.WHITE);
         button.setFocusPainted(false);
     }
+
+
 }
