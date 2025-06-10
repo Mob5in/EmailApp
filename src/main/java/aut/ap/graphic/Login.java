@@ -1,5 +1,7 @@
 package aut.ap.graphic;
 
+import aut.ap.service.LoginService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -50,6 +52,7 @@ public class Login {
 
                 System.out.println("Email: " + email);
                 System.out.println("Password: " + password);
+                LoginService.login(email, password);
 
             }
         });
