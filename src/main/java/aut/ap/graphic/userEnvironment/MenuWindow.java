@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class MenuWindow {
 
-    public static ArrayList<User> correntUsers;
+    public static ArrayList<User> currentUsers = new ArrayList<>();
 
-    public static void setUser(User correntUser){
-        correntUsers.add(correntUser);
+    public static void setUser(User currentUser){
+        currentUsers.add(currentUser);
     }
 
     public static User getCorrentUser(){
-        return correntUsers.getLast();
+        return currentUsers.getLast();
     }
 
     public static void showMenu() {
