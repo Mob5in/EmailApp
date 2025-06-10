@@ -1,6 +1,7 @@
 package aut.ap.graphic.userEnvironment;
 
 import aut.ap.graphic.userEnvironment.Views.AllEmails;
+import aut.ap.graphic.userEnvironment.Views.ReadByCode;
 import aut.ap.graphic.userEnvironment.Views.UnreadEmails;
 
 import javax.swing.*;
@@ -63,6 +64,13 @@ public class ViewWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UnreadEmails.ShowUnreadEmails();
+            }
+        });
+
+        readByEmailCodeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ReadByCode.gettingCode();
             }
         });
 
