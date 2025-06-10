@@ -44,12 +44,12 @@ public class View {
         backToMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false); // پنهان کردن پنجره فعلی
+                frame.setVisible(false);
                 preframe.setVisible(true);
             }
         });
 
-        // اضافه کردن دکمه‌ها به پنل
+
         panel.add(allEmailsButton);
         panel.add(Box.createRigidArea(new Dimension(0, 15)));
         panel.add(unreadEmailsButton);
@@ -57,15 +57,15 @@ public class View {
         panel.add(sentEmailsButton);
         panel.add(Box.createRigidArea(new Dimension(0, 15)));
         panel.add(readByEmailCodeButton);
-        panel.add(Box.createRigidArea(new Dimension(0, 30))); // فاصله بیشتر برای دکمه Back
-        panel.add(backToMenuButton); // اضافه کردن دکمه Back
+        panel.add(Box.createRigidArea(new Dimension(0, 30)));
+        panel.add(backToMenuButton);
 
         frame.add(panel);
-        frame.setLocationRelativeTo(null); // مرکز صفحه
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    // تنظیمات مشترک برای دکمه‌ها
+
     private static void configureButton(JButton button, Dimension size, Font font) {
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setPreferredSize(size);

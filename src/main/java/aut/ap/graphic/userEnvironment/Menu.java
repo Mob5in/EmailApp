@@ -37,6 +37,7 @@ public class Menu{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Send button clicked");
+                Send.send();
             }
         });
 
