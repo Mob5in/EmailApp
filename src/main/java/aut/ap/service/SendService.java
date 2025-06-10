@@ -2,7 +2,7 @@ package aut.ap.service;
 import aut.ap.graphic.PopUpWindow;
 import aut.ap.graphic.userEnvironment.MenuWindow;
 import aut.ap.model.EmailRecipient;
-import aut.ap.model.Emails;
+import aut.ap.model.Email;
 import aut.ap.model.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -31,7 +31,7 @@ public class SendService{
         }
         User user = MenuWindow.getCorrentUser();
         User recipientUser = GetUserService.getUser(recipient);
-        Emails email = new Emails(user, subject, body);
+        Email email = new Email(user, subject, body);
         EmailRecipient emailRecipient = new EmailRecipient(email, recipientUser);
 
         if (recipientUser == null) {

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Emails")
-public class Emails{
+public class Email{
 
     @Id
     @Column(name = "code", length = 6)
@@ -25,12 +25,12 @@ public class Emails{
     private LocalDateTime sentDate;
 
     // Constructor
-    public Emails(){
+    public Email(){
         this.code = generateUniqueKey();
         this.sentDate = LocalDateTime.now();
     }
 
-    public Emails(User sender, String subject, String body){
+    public Email(User sender, String subject, String body){
         this.code = generateUniqueKey();
         this.sentDate = LocalDateTime.now();
         setSender(sender);

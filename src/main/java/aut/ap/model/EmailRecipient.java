@@ -1,6 +1,6 @@
 package aut.ap.model;
 import jakarta.persistence.*;
-import aut.ap.model.Emails;
+import aut.ap.model.Email;
 
 
 @Entity
@@ -14,7 +14,7 @@ public class EmailRecipient {
 
     @ManyToOne
     @JoinColumn(name = "email_code", referencedColumnName = "code")
-    private Emails email;
+    private Email email;
 
     @ManyToOne
     @JoinColumn(name = "recipient_id", referencedColumnName = "id")
@@ -28,7 +28,7 @@ public class EmailRecipient {
         this.isRead = false;
     }
 
-    public EmailRecipient(Emails email, User recipient) {
+    public EmailRecipient(Email email, User recipient) {
         this.isRead = false;
         this.email = email;
         this.recipient = recipient;
@@ -39,11 +39,11 @@ public class EmailRecipient {
         return id;
     }
 
-    public Emails getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(Emails email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 

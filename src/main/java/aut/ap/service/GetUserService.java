@@ -1,5 +1,5 @@
 package aut.ap.service;
-import aut.ap.model.Emails;
+import aut.ap.model.Email;
 import aut.ap.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
