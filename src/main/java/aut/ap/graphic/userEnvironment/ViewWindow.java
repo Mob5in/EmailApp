@@ -1,5 +1,7 @@
 package aut.ap.graphic.userEnvironment;
 
+import aut.ap.graphic.userEnvironment.Views.AllEmails;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,7 +34,7 @@ public class ViewWindow {
         configureButton(unreadEmailsButton, buttonSize, buttonFont);
         configureButton(sentEmailsButton, buttonSize, buttonFont);
         configureButton(readByEmailCodeButton, buttonSize, buttonFont);
-        configureButton(backToMenuButton, buttonSize, buttonFont); // تنظیمات دکمه Back
+        configureButton(backToMenuButton, buttonSize, buttonFont);
 
 
         allEmailsButton.addActionListener(e -> System.out.println("All emails button clicked"));
@@ -49,6 +51,13 @@ public class ViewWindow {
             }
         });
 
+        allEmailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                AllEmails.ShowAllEmails();
+            }
+        });
 
         panel.add(allEmailsButton);
         panel.add(Box.createRigidArea(new Dimension(0, 15)));
