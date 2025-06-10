@@ -30,6 +30,14 @@ public class Emails{
         this.sentDate = LocalDateTime.now();
     }
 
+    public Emails(User sender, String subject, String body){
+        this.code = generateUniqueKey();
+        this.sentDate = LocalDateTime.now();
+        setSender(sender);
+        setBody(body);
+        setSubject(subject);
+    }
+
 
 
     // Generate 6-character unique code
@@ -41,10 +49,6 @@ public class Emails{
     // Getters and Setters
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public User getSender() {
