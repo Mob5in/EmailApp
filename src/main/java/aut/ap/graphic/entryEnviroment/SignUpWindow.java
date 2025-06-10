@@ -1,4 +1,4 @@
-package aut.ap.graphic;
+package aut.ap.graphic.entryEnviroment;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,5 +1,8 @@
 package aut.ap.graphic;
 
+import aut.ap.graphic.entryEnviroment.LoginWindow;
+import aut.ap.graphic.entryEnviroment.SignUpWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

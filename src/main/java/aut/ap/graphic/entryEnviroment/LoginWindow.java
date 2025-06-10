@@ -1,4 +1,4 @@
-package aut.ap.graphic;
+package aut.ap.graphic.entryEnviroment;
 
 import aut.ap.service.LoginService;
 
