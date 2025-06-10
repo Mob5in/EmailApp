@@ -7,9 +7,7 @@ import java.awt.event.ActionListener;
 
 public class View {
 
-    public static void ShowEmail(JFrame preFrame) {
-
-        preFrame.setVisible(false);
+    public static void ShowEmail(JFrame preframe) {
 
         JFrame frame = new JFrame("Email Viewer");
         frame.setSize(600, 600);
@@ -21,51 +19,33 @@ public class View {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.PINK);
 
-        // تعریف دکمه‌ها با اسم‌های جدید
         JButton allEmailsButton = new JButton("All emails");
         JButton unreadEmailsButton = new JButton("Unread emails");
         JButton sentEmailsButton = new JButton("Sent emails");
         JButton readByEmailCodeButton = new JButton("Read by Code");
+        JButton backToMenuButton = new JButton("Back to Menu");
 
         Dimension buttonSize = new Dimension(250, 60);
         Font buttonFont = new Font("Arial", Font.BOLD, 20);
 
-        // تنظیمات دکمه‌ها
         configureButton(allEmailsButton, buttonSize, buttonFont);
         configureButton(unreadEmailsButton, buttonSize, buttonFont);
         configureButton(sentEmailsButton, buttonSize, buttonFont);
         configureButton(readByEmailCodeButton, buttonSize, buttonFont);
+        configureButton(backToMenuButton, buttonSize, buttonFont); // تنظیمات دکمه Back
 
-        // عملکرد دکمه‌ها
-        allEmailsButton.addActionListener(new ActionListener() {
+
+        allEmailsButton.addActionListener(e -> System.out.println("All emails button clicked"));
+        unreadEmailsButton.addActionListener(e -> System.out.println("Unread emails button clicked"));
+        sentEmailsButton.addActionListener(e -> System.out.println("Sent emails button clicked"));
+        readByEmailCodeButton.addActionListener(e -> System.out.println("Read by Code button clicked"));
+
+
+        backToMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("All emails button clicked");
-                // مثلاً: EmailManager.showAllEmails();
-            }
-        });
-
-        unreadEmailsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Unread emails button clicked");
-                // مثلاً: EmailManager.showUnreadEmails();
-            }
-        });
-
-        sentEmailsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Sent emails button clicked");
-                // مثلاً: EmailManager.showSentEmails();
-            }
-        });
-
-        readByEmailCodeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Read by Code button clicked");
-                // مثلاً: EmailManager.showEmailByCode();
+                frame.setVisible(false); // پنهان کردن پنجره فعلی
+                preframe.setVisible(true);
             }
         });
 
@@ -77,6 +57,8 @@ public class View {
         panel.add(sentEmailsButton);
         panel.add(Box.createRigidArea(new Dimension(0, 15)));
         panel.add(readByEmailCodeButton);
+        panel.add(Box.createRigidArea(new Dimension(0, 30))); // فاصله بیشتر برای دکمه Back
+        panel.add(backToMenuButton); // اضافه کردن دکمه Back
 
         frame.add(panel);
         frame.setLocationRelativeTo(null); // مرکز صفحه

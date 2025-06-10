@@ -7,8 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static aut.ap.service.SignUpService.register;
-
 public class Login {
     public static ActionListener login() {
         JFrame frame = new JFrame("Login - Milou");
