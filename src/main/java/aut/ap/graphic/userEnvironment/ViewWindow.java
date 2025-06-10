@@ -1,6 +1,7 @@
 package aut.ap.graphic.userEnvironment;
 
 import aut.ap.graphic.userEnvironment.Views.AllEmails;
+import aut.ap.graphic.userEnvironment.Views.UnreadEmails;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,10 +55,17 @@ public class ViewWindow {
         allEmailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
                 AllEmails.ShowAllEmails();
             }
         });
+
+        unreadEmailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UnreadEmails.ShowUnreadEmails();
+            }
+        });
+
 
         panel.add(allEmailsButton);
         panel.add(Box.createRigidArea(new Dimension(0, 15)));
