@@ -35,6 +35,7 @@ public class LoginService {
             } else if (user.getPassword().equals(password)) {
                 pupUp("Welcome, " + user.getName());
                 MenuWindow.showMenu();
+                MenuWindow.setUser(user);
             } else {
                 pupUp("Password is incorrect!");
             }

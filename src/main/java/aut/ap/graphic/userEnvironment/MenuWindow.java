@@ -6,17 +6,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MenuWindow {
 
-    public User correntUser;
+    public static ArrayList<User> correntUsers;
 
-    public void setUser(User correntUser){
-        this.correntUser = correntUser;
+    public static void setUser(User correntUser){
+        correntUsers.add(correntUser);
     }
 
     public User getCorrentUser(){
-        return this.correntUser;
+        return correntUsers.getLast();
     }
 
     public static void showMenu() {
