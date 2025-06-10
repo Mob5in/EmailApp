@@ -1,5 +1,6 @@
 package aut.ap.service;
 
+import aut.ap.graphic.userEnvironment.Menu;
 import aut.ap.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,6 +34,7 @@ public class LoginService {
                 pupUp("Doesn't exist!");
             } else if (user.getPassword().equals(password)) {
                 pupUp("Welcome, " + user.getName());
+                Menu.showMenu();
             } else {
                 pupUp("Password is incorrect!");
             }
