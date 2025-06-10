@@ -16,7 +16,7 @@ public class MenuWindow {
         correntUsers.add(correntUser);
     }
 
-    public User getCorrentUser(){
+    public static User getCorrentUser(){
         return correntUsers.getLast();
     }
 
