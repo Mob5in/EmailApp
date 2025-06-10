@@ -1,5 +1,7 @@
 package aut.ap.graphic.userEnvironment;
 
+import aut.ap.service.SendService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -68,6 +70,7 @@ public class SendWindow {
                 System.out.println("Recipient: " + recipient);
                 System.out.println("Subject: " + subject);
                 System.out.println("Body: " + body);
+                SendService.sendEmail(subject, recipient, body);
 
 
             }
