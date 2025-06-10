@@ -40,7 +40,7 @@ public class UnreadEmails {
                 emailPanel.setBackground(Color.WHITE);
 
                 JLabel senderLabel = new JLabel("Sender: " + email.getSender().getName());
-                JLabel subjectLabel = new JLabel("Subject: " + email.getSubject());
+                JLabel subjectLabel = new JLabel("Subject: " + email.getSubject() + "---> Code" + email.getCode());
                 JLabel dateLabel = new JLabel("Date: " + email.getSentDate());
                 JLabel bodyLabel = new JLabel("Massage : " + email.getBody() );
 
