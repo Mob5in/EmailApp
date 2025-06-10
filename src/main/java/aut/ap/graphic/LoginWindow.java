@@ -51,6 +51,7 @@ public class LoginWindow {
                 System.out.println("Email: " + email);
                 System.out.println("Password: " + password);
                 LoginService.login(email, password);
+                frame.dispose();
 
             }
         });

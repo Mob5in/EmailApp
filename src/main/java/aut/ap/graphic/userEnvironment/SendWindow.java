@@ -71,7 +71,7 @@ public class SendWindow {
                 System.out.println("Subject: " + subject);
                 System.out.println("Body: " + body);
                 SendService.sendEmail(subject, recipient, body);
-
+                frame.dispose();
 
             }
         });
