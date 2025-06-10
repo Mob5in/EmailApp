@@ -1,15 +1,16 @@
 package aut.ap.graphic;
 
-import aut.ap.service.LoginService;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login {
-    public static ActionListener login() {
-        JFrame frame = new JFrame("Login - Milou");
+import static aut.ap.service.SignUpService.register;
+
+public class SignUpWindow {
+
+    public static ActionListener signUp() {
+        JFrame frame = new JFrame("Sign Up - Milou");
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -19,6 +20,10 @@ public class Login {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setBackground(Color.WHITE);
+
+        JLabel nameLabel = new JLabel("Name:");
+        JTextField nameField = new JTextField();
+        nameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 
         JLabel emailLabel = new JLabel("Email:");
         JTextField emailField = new JTextField();
@@ -32,7 +37,8 @@ public class Login {
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setMaximumSize(new Dimension(150, 40));
 
-
+        panel.add(nameLabel);
+        panel.add(nameField);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
         panel.add(emailLabel);
         panel.add(emailField);
@@ -45,12 +51,14 @@ public class Login {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText();
                 String email = emailField.getText();
                 String password = new String(passwordField.getPassword());
 
+                System.out.println("Name: " + name);
                 System.out.println("Email: " + email);
                 System.out.println("Password: " + password);
-                LoginService.login(email, password);
+                register(name, email, password);
 
             }
         });
@@ -59,6 +67,4 @@ public class Login {
         frame.setVisible(true);
         return null;
     }
-
-
 }

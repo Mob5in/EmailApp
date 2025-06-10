@@ -34,7 +34,7 @@ public class StartWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Login button clicked");
-                loginButton.addActionListener(Login.login());
+                loginButton.addActionListener(LoginWindow.login());
 
             }
         });
@@ -43,7 +43,7 @@ public class StartWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Sign Up button clicked");
-                signUpButton.addActionListener(SignUp.signUp());
+                signUpButton.addActionListener(SignUpWindow.signUp());
             }
         });
 

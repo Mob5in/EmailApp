@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu{
+public class MenuWindow {
 
     public static void showMenu() {
         JFrame frame = new JFrame("User Menu");
@@ -37,7 +37,7 @@ public class Menu{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Send button clicked");
-                Send.send();
+                SendWindow.send();
             }
         });
 
@@ -46,7 +46,7 @@ public class Menu{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View button clicked");
                 frame.setVisible(false);
-                View.ShowEmail(frame);
+                ViewWindow.ShowEmail(frame);
 
             }
         });

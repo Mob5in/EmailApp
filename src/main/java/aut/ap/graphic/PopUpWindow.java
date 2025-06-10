@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PopUp {
+public class PopUpWindow {
 
     public static void pupUp(String message) {
 

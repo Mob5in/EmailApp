@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class View {
+public class ViewWindow {
 
     public static void ShowEmail(JFrame preframe) {
 

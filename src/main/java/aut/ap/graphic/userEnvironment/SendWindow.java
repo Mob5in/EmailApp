@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Send {
+public class SendWindow {
 
     public static void send() {
         JFrame frame = new JFrame("Send Email - Milou");
