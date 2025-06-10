@@ -44,6 +44,8 @@ public class Menu{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View button clicked");
+                View.ShowEmail(frame);
+
             }
         });
 
