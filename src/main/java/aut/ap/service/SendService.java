@@ -47,7 +47,7 @@ public class SendService{
             session.persist(email);
             session.persist(emailRecipient);
             tx.commit();
-            pupUp("Email send succesfully");
+            pupUp("Email send successfully");
         }catch (Exception e){
             String errorMassage = e.getMessage();
             pupUp(errorMassage);

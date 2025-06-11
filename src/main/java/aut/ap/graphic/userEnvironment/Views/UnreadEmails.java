@@ -1,7 +1,6 @@
 package aut.ap.graphic.userEnvironment.Views;
 
 import aut.ap.model.Email;
-import aut.ap.service.GetEmailsService;
 import aut.ap.service.GetQueryService;
 
 import javax.swing.*;
