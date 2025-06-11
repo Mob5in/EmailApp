@@ -17,7 +17,7 @@ public class SentEmails {
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(Color.PINK);
         String query = "FROM Email WHERE sender.id = :userId";
-        List<Email> unreadEmail = GetQueryService.getQuery(query);
+        List<Email> sentEmail = GetQueryService.getQuery(query);
 
 
 
@@ -26,14 +26,14 @@ public class SentEmails {
         emailListPanel.setBackground(Color.WHITE);
         emailListPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        if (unreadEmail.isEmpty()) {
+        if (sentEmail.isEmpty()) {
             JLabel emptyLabel = new JLabel("There is no email");
             emptyLabel.setFont(new Font("Arial", Font.ITALIC, 14));
             emptyLabel.setForeground(Color.GRAY);
             emptyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             emailListPanel.add(emptyLabel);
         } else {
-            for (Email email : unreadEmail) {
+            for (Email email : sentEmail) {
                 JPanel emailPanel = new JPanel();
                 emailPanel.setLayout(new GridLayout(3, 1));
                 emailPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));

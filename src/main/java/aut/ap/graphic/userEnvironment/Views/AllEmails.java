@@ -1,6 +1,6 @@
 package aut.ap.graphic.userEnvironment.Views;
 import aut.ap.model.Email;
-import aut.ap.service.GetEmailsService;
+import aut.ap.service.GetQueryService;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -14,7 +14,12 @@ public class AllEmails {
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(Color.PINK);
 
-        List<Email> allEmails = GetEmailsService.getEmailsForUser();
+        String query = "FROM Email WHERE sender.id = :userId";
+        List<Email> unreadEmail = GetQueryService.getQuery(query);
+        query = "FROM Email WHERE sender.id = :userId";
+        List<Email> allEmails = GetQueryService.getQuery(query);
+
+        allEmails.addAll(unreadEmail);
 
 
         JPanel emailListPanel = new JPanel();
