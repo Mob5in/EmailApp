@@ -1,5 +1,6 @@
 package aut.ap.service;
 
+import aut.ap.graphic.PopUpWindow;
 import aut.ap.graphic.userEnvironment.MenuWindow;
 import aut.ap.model.Email;
 import aut.ap.model.User;
@@ -33,7 +34,7 @@ public class GetQueryService {
         User currentUser = MenuWindow.getCorrentUser();
         List<Email> allEmails = new ArrayList<>();
 
-        try {;
+        try {
             List<Email> receivedEmails = session.createQuery(query, Email.class)
                     .setParameter("userId", currentUser.getId())
                     .getResultList();
@@ -41,6 +42,8 @@ public class GetQueryService {
             allEmails.addAll(receivedEmails);
 
 
+        }catch (Exception e){
+            PopUpWindow.pupUp(e.getMessage());
         } finally {
             session.close();
             closeSessionFactory();
