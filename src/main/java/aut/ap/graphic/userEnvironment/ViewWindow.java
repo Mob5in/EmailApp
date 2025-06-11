@@ -2,7 +2,9 @@ package aut.ap.graphic.userEnvironment;
 
 import aut.ap.graphic.userEnvironment.Views.AllEmails;
 import aut.ap.graphic.userEnvironment.Views.ReadByCode;
+import aut.ap.graphic.userEnvironment.Views.SentEmails;
 import aut.ap.graphic.userEnvironment.Views.UnreadEmails;
+import aut.ap.service.SendService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,6 +75,14 @@ public class ViewWindow {
                 ReadByCode.gettingCode();
             }
         });
+
+        sentEmailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SentEmails.ShowSentEmails();
+            }
+        });
+
 
 
         panel.add(allEmailsButton);
