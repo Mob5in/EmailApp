@@ -1,6 +1,7 @@
 package aut.ap.graphic.userEnvironment.Views;
 
 import aut.ap.model.Email;
+import aut.ap.service.GetByCode;
 import aut.ap.service.GetEmailsService;
 import aut.ap.service.GetQueryService;
 
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import static aut.ap.service.SignUpService.register;
@@ -61,8 +63,11 @@ public class ReadByCode {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(Color.PINK);
-        String query = "FROM Email WHERE code = :" + code;
-        List<Email> unreadEmail = GetQueryService.getQuery(query);
+
+        Email email = GetByCode.getCode(code);
+
+
+
 
 
 
@@ -71,14 +76,13 @@ public class ReadByCode {
         emailListPanel.setBackground(Color.WHITE);
         emailListPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        if (unreadEmail.isEmpty()) {
+        if (email == null) {
             JLabel emptyLabel = new JLabel("There is no email");
             emptyLabel.setFont(new Font("Arial", Font.ITALIC, 14));
             emptyLabel.setForeground(Color.GRAY);
             emptyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             emailListPanel.add(emptyLabel);
-        } else {
-            for (Email email : unreadEmail) {
+        }else{
                 JPanel emailPanel = new JPanel();
                 emailPanel.setLayout(new GridLayout(3, 1));
                 emailPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
@@ -96,13 +100,7 @@ public class ReadByCode {
 
                 emailListPanel.add(emailPanel);
                 emailListPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-            }
         }
-
-        JScrollPane scrollPane = new JScrollPane(emailListPanel);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        frame.add(scrollPane, BorderLayout.CENTER);
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
