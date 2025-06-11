@@ -2,13 +2,15 @@ package aut.ap.graphic.userEnvironment.Views;
 
 import aut.ap.model.Email;
 import aut.ap.service.GetByCode;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class ReadByCode {
 
-    public static void gettingCode(){
+    public static void gettingCode() {
         JFrame frame = new JFrame("Enter Code - Milou");
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -24,7 +26,6 @@ public class ReadByCode {
         JTextField codeField = new JTextField();
         codeField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 
-
         JButton submitButton = new JButton("Submit");
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setMaximumSize(new Dimension(150, 40));
@@ -32,8 +33,6 @@ public class ReadByCode {
         panel.add(nameLabel);
         panel.add(codeField);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
-        panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(submitButton);
 
         submitButton.addActionListener(new ActionListener() {
@@ -55,13 +54,9 @@ public class ReadByCode {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.getContentPane().setBackground(Color.PINK);
+        frame.setLocationRelativeTo(null);
 
         Email email = GetByCode.getCode(code);
-
-
-
-
-
 
         JPanel emailListPanel = new JPanel();
         emailListPanel.setLayout(new BoxLayout(emailListPanel, BoxLayout.Y_AXIS));
@@ -74,29 +69,35 @@ public class ReadByCode {
             emptyLabel.setForeground(Color.GRAY);
             emptyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             emailListPanel.add(emptyLabel);
-        }else{
-                JPanel emailPanel = new JPanel();
-                emailPanel.setLayout(new GridLayout(3, 1));
-                emailPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
-                emailPanel.setBackground(Color.WHITE);
+        } else {
+            JPanel emailPanel = new JPanel();
+            emailPanel.setLayout(new GridLayout(4, 1));
+            emailPanel.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+            emailPanel.setBackground(Color.WHITE);
 
-                JLabel senderLabel = new JLabel("Sender: " + email.getSender().getName());
-                JLabel subjectLabel = new JLabel("Subject: " + email.getSubject() + "---> Code" + email.getCode());
-                JLabel dateLabel = new JLabel("Date: " + email.getSentDate());
-                JLabel bodyLabel = new JLabel("Massage : " + email.getBody() );
+            JLabel senderLabel = new JLabel("Sender: " + email.getSender().getName());
+            JLabel subjectLabel = new JLabel("Subject: " + email.getSubject() + " ---> Code: " + email.getCode());
+            JLabel dateLabel = new JLabel("Date: " + email.getSentDate());
 
-                emailPanel.add(senderLabel);
-                emailPanel.add(subjectLabel);
-                emailPanel.add(dateLabel);
-                emailPanel.add(bodyLabel);
+            JTextArea bodyArea = new JTextArea("Message: " + email.getBody());
+            bodyArea.setWrapStyleWord(true);
+            bodyArea.setLineWrap(true);
+            bodyArea.setEditable(false);
+            bodyArea.setBackground(Color.WHITE);
+            bodyArea.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-                emailListPanel.add(emailPanel);
-                emailListPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+            emailPanel.add(senderLabel);
+            emailPanel.add(subjectLabel);
+            emailPanel.add(dateLabel);
+            emailPanel.add(bodyArea);
+
+            emailListPanel.add(emailPanel);
+            emailListPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         }
 
-        frame.setLocationRelativeTo(null);
+        JScrollPane scrollPane = new JScrollPane(emailListPanel);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
         frame.setVisible(true);
     }
-
-
 }
