@@ -10,9 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ForwardWindow {
+public class ReplyWindow{
 
-    public static void gettingCodeAndName() {
+    public static void gettingCodeAndBody() {
         JFrame frame = new JFrame("Enter Code & Name - Milou");
         frame.setSize(400, 350);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -28,9 +28,9 @@ public class ForwardWindow {
         JTextField codeField = new JTextField();
         codeField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 
-        JLabel nameLabel = new JLabel("Recipient:");
-        JTextField nameField = new JTextField();
-        nameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+        JLabel BodyLabel = new JLabel("Body:");
+        JTextField bodyField = new JTextField();
+        bodyField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
 
 
         JButton submitButton = new JButton("Submit");
@@ -40,8 +40,8 @@ public class ForwardWindow {
         panel.add(codeLabel);
         panel.add(codeField);
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
-        panel.add(nameLabel);
-        panel.add(nameField);
+        panel.add(BodyLabel);
+        panel.add(bodyField);
         panel.add(Box.createRigidArea(new Dimension(0, 20)));
         panel.add(submitButton);
 
@@ -49,7 +49,7 @@ public class ForwardWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String code = codeField.getText().trim();
-                String recipient = nameField.getText().trim();
+                String body = bodyField.getText().trim();
 
                 if (code.isEmpty()) {
                     PopUpWindow.pupUp("Code cant be empty");
@@ -61,12 +61,12 @@ public class ForwardWindow {
                     return;
                 }
 
-                if (recipient.isEmpty()) {
-                    PopUpWindow.pupUp("Name canot be empty");
+                if (body.isEmpty()) {
+                    PopUpWindow.pupUp("body canot be empty");
                     return;
                 }
                 Email orgEmail = GetByCode.getCode(code);
-                SendService.sendEmail("[FW] "+orgEmail.getSubject(), recipient, orgEmail.getBody() );
+                SendService.sendEmail("[RP] "+orgEmail.getSubject(), orgEmail.getSender().getEmail() ,  body);
                 frame.dispose();
 
             }
