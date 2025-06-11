@@ -14,7 +14,7 @@ public class GetByCode{
     public static Email getCode(String code) {
         String query = "FROM Email WHERE sender.id = :userId";
         List<Email> unreadEmail = GetQueryService.getQuery(query);
-        query = "FROM Email WHERE sender.id = :userId";
+        query = "FROM EmailRecipient WHERE recipient.id = :userId";
         List<Email> allEmails = GetQueryService.getQuery(query);
 
         allEmails.addAll(unreadEmail);
