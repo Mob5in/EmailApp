@@ -49,7 +49,6 @@ public class MenuWindow {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Send button clicked");
                 SendWindow.send();
             }
         });
@@ -57,7 +56,6 @@ public class MenuWindow {
         viewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("View button clicked");
                 frame.setVisible(false);
                 ViewWindow.ShowEmail(frame);
 
@@ -67,14 +65,14 @@ public class MenuWindow {
         replyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Reply button clicked");
+                ReplyWindow.gettingCodeAndBody();
             }
         });
 
         forwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Forward button clicked");
+                ForwardWindow.gettingCodeAndName();
             }
         });
 
