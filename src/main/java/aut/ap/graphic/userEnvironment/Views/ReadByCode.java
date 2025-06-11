@@ -2,18 +2,10 @@ package aut.ap.graphic.userEnvironment.Views;
 
 import aut.ap.model.Email;
 import aut.ap.service.GetByCode;
-import aut.ap.service.GetEmailsService;
-import aut.ap.service.GetQueryService;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import static aut.ap.service.SignUpService.register;
-
 public class ReadByCode {
 
     public static void gettingCode(){
