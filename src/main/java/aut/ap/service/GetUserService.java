@@ -7,7 +7,6 @@ import org.hibernate.cfg.Configuration;
 import static aut.ap.graphic.PopUpWindow.pupUp;
 
 public class GetUserService {
-
     private static SessionFactory sessionFactory;
 
 
