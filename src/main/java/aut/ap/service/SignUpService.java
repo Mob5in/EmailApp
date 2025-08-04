@@ -11,6 +11,7 @@ import static aut.ap.graphic.PopUpWindow.pupUp;
 public class SignUpService {
     private static org.hibernate.SessionFactory sessionFactory;
     private static void setUpSessionFactory() {
+
         sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .buildSessionFactory();
@@ -22,7 +23,6 @@ public class SignUpService {
 
     public static void register(String name, String email, String password){
         try{
-            System.out.println("hello");
             User user = new User(name, email, password);
             setUpSessionFactory();
             Session session = sessionFactory.openSession();

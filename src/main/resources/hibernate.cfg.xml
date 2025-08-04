@@ -5,23 +5,22 @@
 <hibernate-configuration>
     <session-factory>
         <!-- JDBC database connection settings -->
-        <property name="hibernate.connection.driver_class">
-            com.mysql.cj.jdbc.Driver
-        </property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://grand-teton.liara.cloud:30628/Email_Project_db
+            jdbc:mysql://kamet.liara.cloud:33290/Email_Project_db
         </property>
         <property name="hibernate.connection.username">
             root
         </property>
         <property name="hibernate.connection.password">
-            RzJfoM2tfVM7yDiYXuKYz97d
+            qaoaEVQzC67UPzDPczfkYrfk
         </property>
-        <!-- Hibernate settings -->
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.highlight_sql">true</property>
-        <!-- Mappings -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 📦 Mappings -->
         <mapping class="aut.ap.model.User"/>
         <mapping class="aut.ap.model.Email"/>
         <mapping class="aut.ap.model.EmailRecipient"/>

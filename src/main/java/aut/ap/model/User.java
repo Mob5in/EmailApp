@@ -13,13 +13,13 @@ public class User {
     @Column(name = "name", length = 100, nullable = false)
     private String name;
 
-    @Column(name = "email", length = 255, unique = true, nullable = false)
+    @Column(name = "email", length = 255, unique = true)
     private String email;
+
 
     @Column(name = "password", length = 100, nullable = false)
     private String password;
 
-    // Constructors
     public User() {}
 
     public User(String name, String email, String password) throws Exception {
@@ -67,7 +67,6 @@ public class User {
         this.password = password;
     }
 
-    // toString method
     @Override
     public String toString() {
         return "User\n" +

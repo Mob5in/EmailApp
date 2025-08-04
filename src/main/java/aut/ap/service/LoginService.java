@@ -33,8 +33,8 @@ public class LoginService {
             if (user == null) {
                 pupUp("Doesn't exist!");
             } else if (user.getPassword().equals(password)) {
-                MenuWindow.showMenu();
                 MenuWindow.setUser(user);
+                MenuWindow.showMenu();
                 pupUp("Welcome, " + user.getName());
             } else {
                 pupUp("Password is incorrect!");
